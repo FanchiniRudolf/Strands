@@ -127,30 +127,53 @@ class CalculadoraPromise{
     };
 }
 
+async function getJson(url) {
+    let response = await fetch(url);
+    let data = await response.json()
+    return data;
+}
+
+
 // Pruebas
-// let calc = new Calculadora;
+let calc = new Calculadora;
 
-// calc.suma(1,2);
-// calc.suma(1,2,3);
+calc.suma(1,2);
+calc.suma(1,2,3);
 
-// calc.resta(1,2);
-// calc.resta(1,2,3);
+calc.resta(1,2);
+calc.resta(1,2,3);
 
-// calc.multiplicacion(1,2);
-// calc.multiplicacion(1,2,3);
+calc.multiplicacion(1,2);
+calc.multiplicacion(1,2,3);
 
-// calc.divison(1,2);
-// calc.divison(1,2,3);
+calc.divison(1,2);
+calc.divison(1,2,3);
 
-// let calcProm = new CalculadoraPromise;
-// calcProm.suma(1,2);
-// calcProm.suma(1,2,3);
+let calcProm = new CalculadoraPromise;
+calcProm.suma(4,5);
+calcProm.suma(4,5,3);
 
-// calcProm.resta(1,2);
-// calcProm.resta(1,2,3);
+calcProm.resta(4,5);
+calcProm.resta(4,5,3);
 
-// calcProm.multiplicacion(1,2);
-// calcProm.multiplicacion(1,2,3);
+calcProm.multiplicacion(4,5);
+calcProm.multiplicacion(4,5,3);
 
-// calcProm.divison(1,2);
-// calcProm.divison(1,2,3);
+calcProm.divison(4,5);
+calcProm.divison(4,5,3);
+
+//await async
+//OPTION 1
+getJson("https://jsonplaceholder.typicode.com/posts/1/comments")
+.then(data => console.log(data));
+
+//OPTION 2
+async function asyncTest(){
+    jsondata = await getJson("https://jsonplaceholder.typicode.com/posts/1/comments")
+    let [firstcomment] = jsondata;
+    console.log(firstcomment);
+    let {name:postname} = firstcomment;
+    console.log(postname);
+}
+
+asyncTest().then(() => console.log("EOF") )
