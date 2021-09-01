@@ -9,7 +9,6 @@ export const AgregaGenero = ({setGeneros}) => {
     //Esta función se invoca cada vez que se detecta el evento onChange en el input text.
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
-        console.log("Valor Actualziado " + e.target.value);
     }
 
     //Esta función se invoca cada vez que se presiona la tecla enter en el input text.

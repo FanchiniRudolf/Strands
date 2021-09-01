@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 //Recibe como argumento el género que se va utilizar para hacer la búsqueda de los videojuegos
 // utilizando el API de RAWG
-export const ResultadoVideojuegos = ({genero}) => {
+export const InfoVideojuegos = ({genero}) => {
 
     const [infoVideojuegos, setInfoJuegos] = useState([]);
 
@@ -11,7 +11,7 @@ export const ResultadoVideojuegos = ({genero}) => {
     }, [])
 
     const getVideojuegos = async() => {
-        const url = 'https://api.rawg.io/api/games?key=02798a8eb7994b06a56598fff263a25c&genre=' + genero;
+        const url = 'https://api.rawg.io/api/games?key=02798a8eb7994b06a56598fff263a25c&genres=' + genero;
         const respuesta = await fetch(url);
         const {results} = await respuesta.json();
 
@@ -33,13 +33,18 @@ export const ResultadoVideojuegos = ({genero}) => {
         <>
             <h3 className="card-title">{genero}</h3>
 
-            <ol className="list-group">
+
                 {
-                    infoVideojuegos.map( ({id, nombre}) => {
-                        return <li key={id} className="list-group-item">{nombre}</li>
-                    })
-                }
-            </ol>
+                    infoVideojuegos.map( ({id, nombre, imagen, rating, metacritic}) => {
+                        return <div key={id} className="card">
+                                <img src={imagen} className="card-img-top" alt="..."></img>
+                                    <div className="card-body">
+                                        <h5 className="card-title">{nombre}</h5>
+                                        <p  className="card-text">Rating: {rating} <br></br> Metacritic: {metacritic}</p>
+                                    </div>
+                                </div>
+                    }
+                    )}
         </>
 
         
