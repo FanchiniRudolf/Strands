@@ -32,8 +32,7 @@ export const InfoVideojuegos = ({genero}) => {
     return(
         <>
             <h3 className="card-title">{genero}</h3>
-
-
+            <div className="row row-cols-4">
                 {
                     infoVideojuegos.map( ({id, nombre, imagen, rating, metacritic}) => {
                         return <div key={id} className="card">
@@ -45,6 +44,7 @@ export const InfoVideojuegos = ({genero}) => {
                                 </div>
                     }
                     )}
+        </div>
         </>
 
         
