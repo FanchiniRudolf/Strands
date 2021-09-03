@@ -5,7 +5,7 @@ import { InfoVideojuegos } from './componentes/InfoVideojuegos';
 
 export const VideojuegosApp = () => {
 
-    const [generos, setGeneros] = useState(['action']);
+    const [generos, setGeneros] = useState(['']);
 
     // const agregaGenero = () => {
     //     setGeneros( estadoactualGeneros => [...estadoactualGeneros, 'Nuevo Género'] );
@@ -25,7 +25,7 @@ export const VideojuegosApp = () => {
             {/* <button type="button" className="btn btn-primary" onClick={agregaGenero}>Agregar Género</button> */}
 
             {/*Creamos lista*/}
-            <div className="d-flex p-2 bd-highlight">
+            <div className="container-md text-center align-content-center">
                 {
                     generos.map( genero => {
                         return <InfoVideojuegos key={genero} genero={genero} />
