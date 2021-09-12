@@ -1,29 +1,20 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 
 export const useForm = () => {
 
     const [state, setState] = useState({
-        estadoInicial: []
+        initialState: {}
     });
-    const {estadoInicial} = state;
+    const {initialState} = state;
 
     const handleInputChange = (e) => {
-        //Actualizamos el estado del formulario.s
-        setState({...State, estadoInicial: e.estadoInicial})
+        //Actualizamos el estado del formulario.
+        setState({
+            ...state,
+            [e.target.name]: e.target.value
+        })
     }
 
-    return ( 
-        <div>
-            {estadoInicial}
-            {handleInputChange}
-        </div>
+    return [state, handleInputChange] ;
         
-        )
-        // <>
-        //  <h1> State {estadoInicial} </h1>
-        //  <h1> referencia {referencia}</h1>
-        //  onChange = {handleInputChange}
-        //  <hr/>  
-        // </> 
-    //) 
 }

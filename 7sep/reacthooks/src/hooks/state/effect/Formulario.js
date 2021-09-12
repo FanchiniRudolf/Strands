@@ -1,40 +1,38 @@
-import React, {useEffect,useState} from 'react';
+import React, {useEffect} from 'react';
 import { Mensaje } from './Mensaje';
 import { useForm } from '../useForm';
 
 export const Formulario = () => {
         //Creamos el estado del formulario, cuyo estado inicial va ser un objeto con email y nombre vacíos.
-        const [formState, setFormState] = useForm({
+        const [formState, handleInputChange] = useForm({
             nombre: '',
             email: ''
         });
 
+        console.log(formState);
+        console.log(handleInputChange);
+
         //Desestructuramos el estado del formulario
         const {nombre,email} = formState;
-
-        //Esta función se va invocar cada vez que exista un cambio en alguno de los input text del formulario.
-        // const handleInputChange = (e) => {
-        //     //Actualizamos el estado del formulario.s
-        //     setFormState({
-        //         ...formState,
-        //         [e.target.name]: e.target.value
-        //     })
-        // }
+        
         //Este useEffect se va disparar cuando se cree el componente por primera vez, por eso enviamos el arreglo de
         // dependencias vacío.
         useEffect(() => {
             console.log('Creación del componente por primera vez: useEffect ejecutado...');
         }, [])
+        
         //Este useEffect se va disparar cada vez que se exista un cambio en formState. Por eso enviamos la variable
         // formState en el arreglo de dependencias.
         useEffect(() => {
             console.log('formState cambió...');
         }, [formState])
+        
         //Este useEffect se va disparar cada vez que se exista un cambio en el email. Por eso enviamos la variable
         // email en el arreglo de dependencias.
         useEffect(() => {
             console.log('email cambió...');
         }, [email])
+
         return ( 
         <> 
             <h1> useEffect </h1>
