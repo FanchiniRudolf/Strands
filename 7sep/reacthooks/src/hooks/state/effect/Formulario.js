@@ -1,9 +1,10 @@
 import React, {useEffect,useState} from 'react';
 import { Mensaje } from './Mensaje';
+import { useForm } from '../useForm';
 
 export const Formulario = () => {
         //Creamos el estado del formulario, cuyo estado inicial va ser un objeto con email y nombre vacíos.
-        const [formState, setFormState] = useState({
+        const [formState, setFormState] = useForm({
             nombre: '',
             email: ''
         });
@@ -12,13 +13,13 @@ export const Formulario = () => {
         const {nombre,email} = formState;
 
         //Esta función se va invocar cada vez que exista un cambio en alguno de los input text del formulario.
-        const handleInputChange = (e) => {
-            //Actualizamos el estado del formulario.s
-            setFormState({
-                ...formState,
-                [e.target.name]: e.target.value
-            })
-        }
+        // const handleInputChange = (e) => {
+        //     //Actualizamos el estado del formulario.s
+        //     setFormState({
+        //         ...formState,
+        //         [e.target.name]: e.target.value
+        //     })
+        // }
         //Este useEffect se va disparar cuando se cree el componente por primera vez, por eso enviamos el arreglo de
         // dependencias vacío.
         useEffect(() => {
