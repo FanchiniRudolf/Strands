@@ -5,7 +5,7 @@ import { InfoVideojuegos } from './componentes/InfoVideojuegos';
 
 export const VideojuegosApp = () => {
 
-    const [generos, setGeneros] = useState(['']);
+    const [generos, setGeneros] = useState([]);
 
     // const agregaGenero = () => {
     //     setGeneros( estadoactualGeneros => [...estadoactualGeneros, 'Nuevo Género'] );
