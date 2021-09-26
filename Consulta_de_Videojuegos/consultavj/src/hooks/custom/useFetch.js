@@ -37,9 +37,8 @@ export const useFetch = (url) => {
             .then((info) => {  
                 //Hacemos el setState solamente si el componente sigue montado. Esto es para evitar el error
                 // que se menciona en UseRefEjemploReal.js  
-                console.log("abcd")
                 console.log(info);
-                const juegos = info.results.map( juego => {
+                info = info.results.map( juego => {
                     return{
                         id: juego.id,
                         nombre: juego.name,
@@ -48,12 +47,12 @@ export const useFetch = (url) => {
                         metacritic: juego.metacritic
                     }
                 })
-                console.log(juegos);
+                console.log(info);
                 if(isMounted.current){
                     setState({
                         loading:false,
                         error:null,
-                        juegos
+                        info:info
                     });
                 }else{
                     console.log('setSate no se llamó porque el componente ya estaba desmontado');} 

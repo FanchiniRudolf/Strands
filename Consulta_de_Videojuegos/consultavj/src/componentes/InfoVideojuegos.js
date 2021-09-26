@@ -11,9 +11,7 @@ export const InfoVideojuegos = ({genero}) => {
     const [infoVideojuegos, setInfoJuegos] = useState([]);
     const { loading, info }  = useFetch(url);
     console.log(info);
-    useEffect( () => {
-        setInfoJuegos(info);
-    }, [])
+    
 
 
 
@@ -30,7 +28,7 @@ export const InfoVideojuegos = ({genero}) => {
                     : 
                     (
                         //loaded
-                        infoVideojuegos.map( ({id, nombre, imagen, rating, metacritic}) => {
+                        info.map( ({id, nombre, imagen, rating, metacritic}) => {
                             return <div key={id} className="card">
                                     <img src={imagen} className="card-img-top" alt="..."></img>
                                         <div className="card-body">
