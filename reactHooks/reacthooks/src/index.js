@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { HookCallback } from './hooks/memo/HookCallBack';
 import { HookUseMemo } from './hooks/memo/HookUseMemo';
+import { TodoApp } from './hooks/reducer/TodoApp';
 //import { Memoriza } from './hooks/memo/Memoriza';
 //import { UseRefMultipleCustomHooks } from './hooks/ref/UseRefMultipleCustomHooks';
 //import { FocusScreen } from './hooks/ref/FocusScreen';
@@ -12,7 +14,11 @@ import { Formulario } from './hooks/state/effect/Formulario';
 //import { Hooks } from './Hooks';
 
 
-ReactDOM.render( 
-  <Formulario/>,
+ReactDOM.render(
+  <TodoApp/>,
   document.getElementById('root')
-  );
+);
+
+
+
+//import('./hooks/reducer/intro-reducer');
