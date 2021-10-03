@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import {VideojuegosApp} from './component/VideojuegosApp';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <VideojuegosApp />
   </React.StrictMode>,
   document.getElementById('root')
 );
