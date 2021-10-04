@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { collectionReducer } from '../functions/collectionReducer';
 
 export const AgregarTitulo = ({setTitulos}) => {
     //En la variable inputValue siempre vamos a tener el último valor que el usuario escribió en
@@ -39,9 +40,10 @@ cual va actualizar el estado de la variable inputValue.
                 <input 
                     type="text"
                     value={inputValue}
-                    onChange={ handleInputChange }
+                    onChange={ handleInputChange /*TODO make not avaialbe to submit*/ }
                     className="form-control"
                 />
+                <button type="submit">Agregar</button>
             </div>
         </form>
 )

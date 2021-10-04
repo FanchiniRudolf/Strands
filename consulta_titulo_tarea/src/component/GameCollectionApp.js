@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { AgregarTitulo } from './AgregarTitulo';
-import { InfoVideojuegos } from './InfoVideojuegos';
+import { AgregarTitulo } from './GameCollectionAdd';
+import { GameCollection } from './GameCollection';
 
 export const VideojuegosApp = () => {
 
@@ -21,14 +21,8 @@ export const VideojuegosApp = () => {
 
             {/*Creamos lista*/}
             {console.log(titulos)}
-            <div className="container-md text-center align-content-center"/*TODO change map formula*/ >
-                {
-                    
-                    titulos.map( titulo => {
-                        return <InfoVideojuegos  titulo={titulo} />
-                  })
-                } 
-            </div>
+            <GameCollection titulos={titulos}/>
+            
         </>
     )
 }

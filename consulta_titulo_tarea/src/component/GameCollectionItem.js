@@ -17,8 +17,8 @@ export const InfoVideojuegos = ({titulo}) => {
 
     return(
         <>
-            <h3 className="card-title">{titulo}</h3>
-            <div className="row row-cols-4">
+            
+            
                 {loading ? (
                         //Si loading es true, mostramos el mensaje 'loading'
                         <div className="alert alert-info text-center">
@@ -28,17 +28,19 @@ export const InfoVideojuegos = ({titulo}) => {
                     : 
                     (
                         //loaded  
-                        <div key={info.id} className="card">
+                        <div key={info.id} className="card p-2 bd-highlight">
+                           
                             <img src={info.background_image} className="card-img-top" alt="..."></img>
                                 <div className="card-body">
-                                    <h5 className="card-title">{info.name}</h5>
+                                    <h5 className="card-title">{info.name} Id:{titulo}</h5>
                                     <p  className="card-text">Rating: {info.rating} <br>
                                         </br> Metacritic: {info.metacritic}</p>
+                                    
                                 </div>
                         </div>
                     )
                 }
-        </div>
+        
         </>
 
         
