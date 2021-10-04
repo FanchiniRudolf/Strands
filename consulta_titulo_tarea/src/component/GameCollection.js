@@ -2,14 +2,14 @@ import React from 'react';
 import { InfoVideojuegos } from './GameCollectionItem';
 
 
-export const GameCollection = ({titulos}) => {
+export const GameCollection = ({titulos, dispatch}) => {
 
     return (
         <div className="d-flex container-md text-center flex-row3 bd-highlight align-items-center mb-3" >
                 {
                     
                     titulos.map( titulo => {
-                        return <InfoVideojuegos  titulo={titulo} />
+                        return <InfoVideojuegos  titulo={titulo}  dispatch={dispatch} />
                 })
                 } 
         </div>

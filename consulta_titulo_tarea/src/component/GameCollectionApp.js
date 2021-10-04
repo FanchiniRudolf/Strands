@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { AgregarTitulo } from './GameCollectionAdd';
 import { GameCollection } from './GameCollection';
+import { collectionReducer, init } from '../hooks/collectionReducer';
+
 
 export const VideojuegosApp = () => {
 
-    const [titulos, setTitulos] = useState([]);
+    const [titulos, dispatch] = useReducer(collectionReducer, [], init);
 
 
     return ( 
@@ -16,12 +18,11 @@ export const VideojuegosApp = () => {
                 </div> 
             </div> 
 
-            <AgregarTitulo setTitulos = {setTitulos} />
+            <AgregarTitulo dispatch = {dispatch} />
 
 
             {/*Creamos lista*/}
-            {console.log(titulos)}
-            <GameCollection titulos={titulos}/>
+            <GameCollection titulos={titulos} dispatch={dispatch}/>
             
         </>
     )
