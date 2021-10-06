@@ -1,5 +1,6 @@
 import React from 'react';
 import { useFetch } from '../hooks/fetchGameId';
+import './Style.css'; 
 
 
 //Recibe como argumento el género que se va utilizar para hacer la búsqueda de los videojuegos
