@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { LoginScreen } from '../login/loginScreen';
 import { SecondAppRouter } from './SecondAppRouter';
+import { getCookie } from "../../Functions/Cookies";
 
 export const MainAppRouter = () => {
     return (
@@ -14,7 +15,13 @@ export const MainAppRouter = () => {
                 <Switch>
                     <Route exact path="/login" component={LoginScreen} />
                     <Route path="/home" component={SecondAppRouter} />
-                    <Route path="/" component={LoginScreen} />
+                    <Route path="/">
+                        {getCookie("loggedIn") ?
+                            (<SecondAppRouter/>) :
+                            (<LoginScreen />)
+                        }
+
+                    </Route>
                 </Switch>
             </div>
         </Router>
