@@ -5,7 +5,6 @@ import React from 'react';
 export const LoginScreen = ({ history }) => {
     const doLogin = () => {
         history.push('/home');
-        console.log("jkashdkajshdaksjd");
         //history.replace('/home');
     }
     return (
