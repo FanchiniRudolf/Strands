@@ -37,7 +37,6 @@ export const useFetch = (url) => {
             .then((answer) => {  
                 //Hacemos el setState solamente si el componente sigue montado. Esto es para evitar el error
                 // que se menciona en UseRefEjemploReal.js  
-                console.log(answer);
                 if(isMounted.current){
                     setState({
                         loading:false,
