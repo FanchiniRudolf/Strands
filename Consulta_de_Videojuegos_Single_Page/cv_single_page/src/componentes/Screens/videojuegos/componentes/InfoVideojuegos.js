@@ -8,10 +8,8 @@ export const InfoVideojuegos = ({genero}) => {
 
     const url = 'https://api.rawg.io/api/games?key=02798a8eb7994b06a56598fff263a25c&genres=' + genero;
 
-    const [infoVideojuegos, setInfoJuegos] = useState([]);
     const { loading, info }  = useFetch(url);
     console.log(info);
-    console.log(infoVideojuegos);
 
 
 
@@ -28,11 +26,11 @@ export const InfoVideojuegos = ({genero}) => {
                     : 
                     (
                         //loaded
-                        info.result.map( ({id, nombre, imagen, rating, metacritic}) => {
+                        info.results.map( ({id, name, background_image, rating, metacritic}) => {
                             return <div key={id} className="card">
-                                    <img src={imagen} className="card-img-top" alt="..."></img>
+                                    <img src={background_image} className="card-img-top" alt="..."></img>
                                         <div className="card-body">
-                                            <h5 className="card-title">{nombre}</h5>
+                                            <h5 className="card-title">{name}</h5>
                                             <p  className="card-text">Rating: {rating} <br></br> Metacritic: {metacritic}</p>
                                         </div>
                                     </div>
