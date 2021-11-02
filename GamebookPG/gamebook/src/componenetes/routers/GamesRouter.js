@@ -6,7 +6,6 @@ import { PcScreen } from '../pc/PcScreen';
 import { PsScreen } from '../ps/PsScreen';
 import { SwitchScreen } from '../switch/SwitchScreen';
 import { XboxScreen } from '../../xbox/XboxScreen';
-import { BuscadorScreen } from '../buscador/BuscadorScreen';
 
 export const GamesRouter = () => {
     return (
@@ -19,7 +18,6 @@ export const GamesRouter = () => {
                     <Route exact path="/switch" component={SwitchScreen} />
                     <Route exact path="/pc" component={PcScreen} />
                     <Route exact path="/game/:gameId" component={GameScreen} />
-                    <Route exact path="/buscar" component={BuscadorScreen} />
                     <Redirect to="/ps" />
                 </Switch>
             </div>
