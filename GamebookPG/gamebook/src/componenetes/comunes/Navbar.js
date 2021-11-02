@@ -43,14 +43,6 @@ export const Navbar = () => {
                     >
                         PC
                     </NavLink>
-                    <NavLink
-                        activeClassName="active"
-                        className="nav-item nav-link"
-                        exact
-                        to="/buscar"
-                    >
-                        Buscar
-                    </NavLink>
                 </div>
             </div>
             <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
