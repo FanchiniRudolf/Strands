@@ -1,13 +1,12 @@
 import React, { cloneElement } from 'react'; 
 import { getCookie } from '../../../Functions/Cookies';
-import {useState, useReducer} from 'react';
-import { GameCollection } from '../coleccion/GameCollection';
-import { collectionReducer, init } from '../../../hooks/collectionReducer';
+import {useState} from 'react';
+import { InfoVideojuegos } from './BuscadorItem';
  
 export const BuscadorScreen = () => { 
     
     const [search, setSearch] = useState();
-    const [games, setGames] = useState();
+    const [games, setGames] = useState([]);
     
     const handleBusqueda = (e) => { 
         setSearch(e.target.value);
@@ -60,7 +59,11 @@ export const BuscadorScreen = () => {
                     <br /> 
                     
                     {/*Creamos lista*/}
-                    <p> {games} </p>
+                    {
+                        games.map( games => {
+                            return <InfoVideojuegos titulo = {games} />
+                        })
+                    }
  
                 </div> 
             </div> 
