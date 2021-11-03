@@ -31,7 +31,7 @@ export const InfoVideojuegos = ({genero}) => {
                                     <img src={background_image} className="card-img-top" alt="..."></img>
                                         <div className="card-body">
                                             <h5 className="card-title">{name}</h5>
-                                            <p  className="card-text">Rating: {rating} <br></br> Metacritic: {metacritic}</p>
+                                            <p  className="card-text"> Id: {id} <br></br> Rating: {rating} <br></br> Metacritic: {metacritic}</p>
                                         </div>
                                     </div>
                         }

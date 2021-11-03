@@ -37,9 +37,11 @@ export const InfoVideojuegos = ({titulo, dispatch}) => {
                            
                             <img src={info.background_image} className="card-img-top" alt="..."></img>
                                 <div className="card-body">
-                                    <h5 className="card-title">{info.name} Id:{titulo}</h5>
-                                    <p  className="card-text">Rating: {info.rating} <br>
-                                        </br> Metacritic: {info.metacritic}</p>
+                                    <h5 className="card-title">{info.name} </h5>
+                                    <p  className="card-text"> 
+                                        Id:{titulo} <br></br> 
+                                        Rating: {info.rating} <br></br> 
+                                        Metacritic: {info.metacritic}</p>
                                     <button className="btn btn-danger" onClick={onClick}>
                                         Eliminar Juego
                                     </button>

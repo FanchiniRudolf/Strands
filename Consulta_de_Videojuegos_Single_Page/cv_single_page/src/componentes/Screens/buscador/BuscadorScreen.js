@@ -1,15 +1,36 @@
-import React from 'react'; 
-import { juegos } from './juegos'; 
-import { GameCard } from './GameCard';
+import React, { cloneElement } from 'react'; 
+import { getCookie } from '../../../Functions/Cookies';
+import {useState, useReducer} from 'react';
+import { GameCollection } from '../coleccion/GameCollection';
+import { collectionReducer, init } from '../../../hooks/collectionReducer';
  
 export const BuscadorScreen = () => { 
- 
-    const juegosFiltrados = juegos; 
- 
-    const handleBusqueda = () => { 
-         
-    } 
- 
+    
+    const [search, setSearch] = useState();
+    const [games, setGames] = useState();
+    
+    const handleBusqueda = (e) => { 
+        setSearch(e.target.value);
+    }
+
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        console.log('Se hizo submit...');
+
+        let temp = getCookie('videogames') || [];
+        console.log(temp);
+        
+        temp = temp.filter((value) => {
+              return value === parseInt(search);
+        })
+
+        console.log(temp);
+        
+        setGames(temp);
+        console.log(games);
+    }
+
+    
     return ( 
         <> 
             <h1>Buscador</h1> 
@@ -19,31 +40,27 @@ export const BuscadorScreen = () => {
                 <div className="col-5"> 
                     <h4>Mi Búsqueda</h4> 
                     <br /> 
-                    <form onSubmit={handleBusqueda}> 
-                        <input  
-                            type="text" 
-                            className="form-control"  
-                            name="criterioBusqueda" 
-                        /> 
+                    <input 
+                        type="text" 
+                        className="form-control"  
+                        name="criterioBusqueda"
+                        onChange={ handleBusqueda }
+                    /> 
  
-                        <button type="submit" 
-                                className="btn m-1 btn-block btn-outline-primary"> 
-                            Buscar 
-                        </button> 
-                    </form> 
+                    <button 
+                        type="submit" 
+                        className="btn m-1 btn-block btn-outline-primary"
+                        onClick = { handleSubmit } >    
+                        Buscar
+                    </button>  
                 </div> 
  
                 <div className="col-7"> 
                     <h4>Resultado</h4> 
                     <br /> 
- 
-                    { 
-                        //Recorremos el resultado de la búsqueda de los juegos. 
-                        juegosFiltrados.map(juego => ( 
-                            <GameCard key={juego.id} 
-                                      juego={juego}/> 
-                        )) 
-                    } 
+                    
+                    {/*Creamos lista*/}
+                    <p> {games} </p>
  
                 </div> 
             </div> 
