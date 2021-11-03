@@ -10,7 +10,7 @@ import { getCookie } from "../../Functions/Cookies";
 import { UserContext } from '../../hooks/userContext';
 
 export const MainAppRouter = () => {
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState("admin");
 
     return (
         <UserContext.Provider value={{user, setUser}}>
