@@ -5,7 +5,6 @@ export const collectionReducer = (state = [], action) => {
     switch (action.type) {
         //Se dispara con la acción de agregar un todo.
         case 'add':
-            console.log("add", action.payload, typeof action.payload);
             cookieJar = [...state, Number(action.payload)];
             break;
 
