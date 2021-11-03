@@ -1,15 +1,21 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 //Los componentes por default tienen implícitas unas props que son history, location, match, y staticContext.
 //Vamos a utilizar el prop 'history' para poder navegar a la ruta '/'
 import { setCookie } from '../../Functions/Cookies';
 import { useHistory } from "react-router-dom";
+import { UserContext } from '../../hooks/userContext';
 
 export const LoginScreen = () => {
 
     const history = useHistory();
 
-    const [user, setUser] = useState();
+    const {user} = useContext(UserContext);
+    const {setUser} =  useContext(UserContext); 
+    
     const [pass, setPass] = useState();
+    console.log(setPass)
+    console.log(setUser)
+    console.log(user)
 
     const handleUserChange = (e) => {
         setUser(e.target.value);
