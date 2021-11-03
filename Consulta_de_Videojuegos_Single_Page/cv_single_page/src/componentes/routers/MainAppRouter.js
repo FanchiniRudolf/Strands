@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -7,11 +7,15 @@ import {
 import { LoginScreen } from '../login/loginScreen';
 import { SecondAppRouter } from './SecondAppRouter';
 import { getCookie } from "../../Functions/Cookies";
+import { UserContext } from '../../hooks/userContext';
 
 export const MainAppRouter = () => {
+    const [user, setUser] = useState("admin");
+
     return (
+        <UserContext.Provider value={{user, setUser}}>
         <Router>
-            <div>
+            
                 <Switch>
                     <Route exact path="/login" component={LoginScreen} />
                     <Route path="/home" component={SecondAppRouter} />
@@ -23,7 +27,7 @@ export const MainAppRouter = () => {
 
                     </Route>
                 </Switch>
-            </div>
         </Router>
+        </UserContext.Provider>
     )
 }
