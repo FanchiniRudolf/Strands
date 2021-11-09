@@ -9,8 +9,14 @@ module.exports = function (app) {
     var gameCollection = require('./gameCollectionController');
     app.route('/games')
         .get(gameCollection.obtener_juegos)
-        .post(gameCollection.agregar_juego);
+        .post(gameCollection.agregar_juego)
+        .delete(gameCollection.borrar_juego)
+
+    app.route('/games/search')
+        .get(gameCollection.buscar_juego);
+
     app.route('/games/:gameIndex')
         .get(gameCollection.obtener_juego);
-
+    
+    
 };
