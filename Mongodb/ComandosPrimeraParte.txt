@@ -6,7 +6,7 @@
 
 	//Crear Coleccion de videojuegos 
 		db.createCollection(“videojuego”)
-
+			
 	//Crear Coleccion de actividades
 		db.createCollection("actividad")
 
