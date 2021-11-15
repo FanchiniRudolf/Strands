@@ -1,217 +1,140 @@
-	//Crear base de datos para el portal
-		use inf_portal
-
-	//Crear coleccion de usuarios 
-		db.createCollection(“usuario”)
-
-	//Crear Coleccion de videojuegos 
-		db.createCollection(“videojuego”)
-			
-	//Crear Coleccion de actividades
-		db.createCollection("actividad")
-
-	//Validar creacion de colecciones
-		show collections  
-
-	//Generar un nuevo registro en la coleccion usuario
-		db.usuario.insert( 
-			{ 
-			"nombre" : "bob esponja pantalones cuadrados" , 
-			"avatar" : "fotito" ,
-			"username" : "Cangreburger" ,
-			"contraseña" : "calamardoLover123" ,
-			"fecha_registro " : "12/03/2019" ,
-			"correo_electrónico" : "bobesponja@gmail.com"
-			} , { 
-			"nombre" : "Aimee Pearce" , 
-			"avatar" : "fotito" ,
-			"username" : "Pearce" ,
-			"contraseña" : "Pearce12345" ,
-			"fecha_registro " : "24/05/2019" ,
-			"correo_electrónico" : "AimeePearce@gmail.com"
-			} , { 
-			"nombre" : "Rachel Charles" , 
-			"avatar" : "fotito" ,
-			"username" : "Charles" ,
-			"contraseña" : "Charles54321" ,
-			"fecha_registro " : "24/11/2018" ,
-			"correo_electrónico" : "RachelCharles@gmail.com"
-			} , { 
-			"nombre" : "Abraham Ruiz" , 
-			"avatar" : "fotito" ,
-			"username" : "Ruiz" ,
-			"contraseña" : "Ruiz0987" ,
-			"fecha_registro " : "14/01/2020" ,
-			"correo_electrónico" : "AbrahamRuiz@gmail.com"
-			} 
-		) 
-
-	//Generar un nuevo registro en la coleccion “videojuego”
-		db.videojuego.insert( 
-			{ 
+db.videojuego.insert({ 
 			"username" : "Cangreburger" , 
 			"id_videojuego" : "22" ,
 			"nombre" : "Minecraft" ,
 			"plataforma" : "Xbox" ,
 			"comentario " : "No se hacer casas bonitas" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Cangreburger" , 
 			"id_videojuego" : "23" ,
 			"nombre" : "Half-Life: Alyx" ,
 			"plataforma" : "PC" ,
 			"comentario " : "S.C" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Cangreburger" , 
 			"id_videojuego" : "24" ,
 			"nombre" : "Portal 2" ,
 			"plataforma" : "PC" ,
 			"comentario " : "No lo he jugado" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Cangreburger" , 
 			"id_videojuego" : "25" ,
 			"nombre" : "The Elder Scrolls V: Skyrim" ,
 			"plataforma" : "PC" ,
 			"comentario " : "S.C" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Cangreburger" , 
 			"id_videojuego" : "26" ,
 			"nombre" : "Tomb Raider" ,
 			"plataforma" : "Xbox" ,
 			"comentario " : "Mi favorito" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Pearce" , 
 			"id_videojuego" : "27" ,
 			"nombre" : "Batman" ,
 			"plataforma" : "PC" ,
 			"comentario " : "S.C." 
-			} ,  { 
+			})
+db.videojuego.insert({ 
 			"username" : "Pearce" , 
 			"id_videojuego" : "28" ,
 			"nombre" : "Cuphead" ,
 			"plataforma" : "PC" ,
 			"comentario " : "S.C." 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Pearce" , 
 			"id_videojuego" : "22" ,
 			"nombre" : "Minecraft" ,
 			"plataforma" : "Xbox" ,
 			"comentario " : "S.C." 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Pearce" , 
 			"id_videojuego" : "26" ,
 			"nombre" : "Tomb Raider" ,
 			"plataforma" : "Xbox" ,
 			"comentario " : "S.C." 
-			} , { 
-			"username" : "Pearce" , 
+			})
+db.videojuego.insert({ 
+			"username" : "	" , 
 			"id_videojuego" : "29" ,
 			"nombre" : "Little Nightmares" ,
 			"plataforma" : "PC" ,
 			"comentario " : "Me encanta" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Charles" , 
 			"id_videojuego" : "29" ,
 			"nombre" : "Little Nightmares" ,
 			"plataforma" : "PC" ,
 			"comentario " : "No me gusta" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Charles" , 
 			"id_videojuego" : "22" ,
 			"nombre" : "Minecraft" ,
 			"plataforma" : "Xbox" ,
 			"comentario " : "S.C." 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Charles" , 
 			"id_videojuego" : "28" ,
 			"nombre" : "Cuphead" ,
 			"plataforma" : "PC" ,
 			"comentario " : "" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Charles" , 
 			"id_videojuego" : "30" ,
 			"nombre" : "God of war" ,
 			"plataforma" : "PS" ,
 			"comentario " : "No lo he jugado" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Charles" , 
 			"id_videojuego" : "31" ,
 			"nombre" : "Red dead redemption 2" ,
 			"plataforma" : "PS" ,
 			"comentario " : "Mi favorito" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Ruiz" , 
 			"id_videojuego" : "31" ,
 			"nombre" : "Red dead redemption 2" ,
 			"plataforma" : "PS" ,
 			"comentario " : "Mi favorito" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Ruiz" , 
 			"id_videojuego" : "25" ,
 			"nombre" : "The Elder Scrolls V: Skyrim" ,
 			"plataforma" : "PC" ,
 			"comentario " : "Mi favorito" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Ruiz" , 
 			"id_videojuego" : "26" ,
 			"nombre" : "Tomb Raider" ,
 			"plataforma" : "Xbox" ,
 			"comentario " : "Mi favorito" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Ruiz" , 
 			"id_videojuego" : "29" ,
 			"nombre" : "Little Nightmares" ,
 			"plataforma" : "PC" ,
 			"comentario " : "Mi favorito" 
-			} , { 
+			})
+db.videojuego.insert({ 
 			"username" : "Ruiz" , 
 			"id_videojuego" : "22" ,
 			"nombre" : "Minecraft" ,
 			"plataforma" : "Xbox" ,
 			"comentario " : "Mi favorito" 
-			} 
-		) 
-
-	//Generar un nuevo registro en la coleccion "actividad"
-		db.actividad.insert(
-			{
-			"username" : "Ruiz" , 
-			"fecha" : "14/01/2020" ,
-			"evento" : "registro" 
-			} , {
-			"username" : "Ruiz" , 
-			"fecha" : "15/01/2020" ,
-			"evento" : "login" 
-			} , {
-			"username" : "Charles" , 
-			"fecha" : "24/11/2018" ,
-			"evento" : "registro" 
-			} , {
-			"username" : "Charles" , 
-			"fecha" : "25/11/2018" ,
-			"evento" : "login" 
-			} , {
-			"username" : "Pearce" , 
-			"fecha" : "24/05/2019" ,
-			"evento" : "registro" 
-			} , {
-			"username" : "Pearce" , 
-			"fecha" : "25/05/2019" ,
-			"evento" : "login" 
-			} , {
-			"username" : "Pearce" , 
-			"fecha" : "26/05/2019" ,
-			"evento" : "agregar" 
-			} , {
-			"username" : "Cangreburger" , 
-			"fecha" : "12/03/2019" ,
-			"evento" : "registro " 
-			} , {
-			"username" : "Cangreburger" , 
-			"fecha" : "13/03/2019" ,
-			"evento" : "login" 
-			} , {
-			"username" : "Cangreburger" , 
-			"fecha" : "14/03/2019" ,
-			"evento" : "agregar" 
-			} 
-		)	
+			})
