@@ -1,0 +1,56 @@
+	//Crear base de datos para el portal
+		use inf_portal
+
+	//Crear coleccion de usuarios 
+		db.createCollection(“usuario”)
+
+	//Crear Coleccion de videojuegos 
+		db.createCollection(“videojuego”)
+			
+	//Crear Coleccion de actividades
+		db.createCollection("actividad")
+
+	//Validar creacion de colecciones
+		show collections  
+
+	//Insertar registros con archivos js
+		load("C:/Users/54321/Documents/labweb/usuario.js")
+		load("C:/Users/54321/Documents/labweb/videojuego.js")
+		load("C:/Users/54321/Documents/labweb/actividad.js")
+
+	//Consultas
+		1- Obtener toda la información de un usuario en base a su correo electrónico. 
+
+			db.usuario.find({"correo_electrónico" : "bobesponja@gmail.com"})
+				
+
+		2- Obtener toda la información de la colección de videojuegos de un usuario en específico. 
+
+			db.videojuego.find({"username" : "Pearce"})
+
+
+		3- Obtener  todos  los  registros  de  la  colección  de  videojuegos  de  un  usuario  en  específico,  y  que 
+		correspondan a palabras de búsqueda utilizando el nombre del videojuego. 
+
+			db.videojuego.find({"username" : "Pearce", "nombre" : /^Minecr/})
+
+
+		4- Obtener todos los registros de la colección de videojuegos de un usuario en específico y de una 
+		consola en específico. 
+
+			db.videojuego.find({"username" : "Charles", "plataforma" : "PC"})
+
+		5- Obtener todos los eventos del log que correspondan a un usuario en específico. 
+
+			db.actividad.find({"username" : "Cangreburger"})
+
+
+		6- Obtener todos los eventos del log que correspondan a un rango de fechas en específico. 
+			db.actividad.find({fecha:{ $gte:ISODate("2018-01-14"), $lt:ISODate("2026-11-24") }})
+
+
+
+		7- Obtener todos los eventos del log que correspondan a un usuario en específico y que  el evento 
+		contenga las palabras de búsqueda indicadas. 
+
+			db.actividad.find({"username" : "Pearce", "evento" : /^regis/})
