@@ -1,50 +1,50 @@
 db.actividad.insert({
 			"username" : "Ruiz" , 
-			"fecha" : "14/01/2020" ,
+			"fecha" : new Date("2020-01-14") ,
 			"evento" : "registro" 
 			})
 db.actividad.insert({
 			"username" : "Ruiz" , 
-			"fecha" : "15/01/2020" ,
+			"fecha" : new Date("2020-01-15") ,
 			"evento" : "login" 
 			})
 db.actividad.insert({
 			"username" : "Charles" , 
-			"fecha" : "24/11/2018" ,
+			"fecha" : new Date("2018-11-24") ,
 			"evento" : "registro" 
 			})
 db.actividad.insert({
 			"username" : "Charles" , 
-			"fecha" : "25/11/2018" ,
+			"fecha" : new Date("2018-11-25") ,
 			"evento" : "login" 
 			})
 db.actividad.insert({
 			"username" : "Pearce" , 
-			"fecha" : "24/05/2019" ,
+			"fecha" : new Date("2019-05-24") ,
 			"evento" : "registro" 
 			})
 db.actividad.insert({
 			"username" : "Pearce" , 
-			"fecha" : "25/05/2019" ,
+			"fecha" : "2019-05-25" ,
 			"evento" : "login" 
 			})
 db.actividad.insert({
 			"username" : "Pearce" , 
-			"fecha" : "26/05/2019" ,
+			"fecha" : new Date("2019-05-26") ,
 			"evento" : "agregar" 
 			})
 db.actividad.insert({
 			"username" : "Cangreburger" , 
-			"fecha" : "12/03/2019" ,
+			"fecha" : new Date("2019-03-12") ,
 			"evento" : "registro " 
 			})
 db.actividad.insert({
 			"username" : "Cangreburger" , 
-			"fecha" : "13/03/2019" ,
+			"fecha" : new Date("2019-03-13") ,
 			"evento" : "login" 
 			})
 db.actividad.insert({
 			"username" : "Cangreburger" , 
-			"fecha" : "14/03/2019" ,
+			"fecha" : new Date("2019-03-14") ,
 			"evento" : "agregar" 
 			})

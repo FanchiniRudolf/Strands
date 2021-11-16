@@ -46,7 +46,7 @@
 
 
 		6- Obtener todos los eventos del log que correspondan a un rango de fechas en específico. 
-
+			db.actividad.find({fecha:{ $gte:ISODate("2018-01-14"), $lt:ISODate("2026-11-24") }})
 
 
 

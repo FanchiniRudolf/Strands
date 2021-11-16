@@ -3,7 +3,7 @@ db.usuario.insert({
 			"avatar" : "fotito" ,
 			"username" : "Cangreburger" ,
 			"contraseña" : "calamardoLover123" ,
-			"fecha_registro " : "12/03/2019" ,
+			"fecha_registro " : new Date("2019-03-12") ,
 			"correo_electrónico" : "bobesponja@gmail.com"
 			})
 db.usuario.insert({ 
@@ -11,7 +11,7 @@ db.usuario.insert({
 			"avatar" : "fotito" ,
 			"username" : "Pearce" ,
 			"contraseña" : "Pearce12345" ,
-			"fecha_registro " : "24/05/2019" ,
+			"fecha_registro " : new Date("2019-05-24") ,
 			"correo_electrónico" : "AimeePearce@gmail.com"
 			})
 db.usuario.insert({ 
@@ -19,7 +19,7 @@ db.usuario.insert({
 			"avatar" : "fotito" ,
 			"username" : "Charles" ,
 			"contraseña" : "Charles54321" ,
-			"fecha_registro " : "24/11/2018" ,
+			"fecha_registro " : new Date("2018-11-24") ,
 			"correo_electrónico" : "RachelCharles@gmail.com"
 			})
 db.usuario.insert({ 
@@ -27,6 +27,6 @@ db.usuario.insert({
 			"avatar" : "fotito" ,
 			"username" : "Ruiz" ,
 			"contraseña" : "Ruiz0987" ,
-			"fecha_registro " : "14/01/2020" ,
+			"fecha_registro " : new Date("2020-01-14") ,
 			"correo_electrónico" : "AbrahamRuiz@gmail.com"
 			}) 
