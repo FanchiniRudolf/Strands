@@ -38,11 +38,35 @@ module.exports.buscar_usuario_by_mail = function (req, res) {
             console.log("Consulta ejecutada..."); 
             mdbclient.close(); 
             res.end(JSON.stringify(result)); 
-        }); 
+        });
     }); 
 };
 
 // Autenticar un usuario en base a su correo electrónico y contraseña 
+module.exports.login = function (req, res) {
+    MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, mdbclient) { 
+        if (err) { 
+            throw err; 
+        } 
+        const db = mdbclient.db(dbName); 
+        var idusuario = req.query.correo_electrónico; 
+        var pass = req.query.contraseña;
+
+        db.collection("usuario").find({ "correo_electrónico": idusuario , "contraseña" : pass}).toArray(function (err, result) { 
+            if (err) { 
+                console.log("nel");
+                throw err; 
+            }
+            if(result<0){
+                console.log("nel nohay");
+            } 
+            console.log("Consulta ejecutada..."); 
+            mdbclient.close(); 
+            res.end(JSON.stringify(result)); 
+        });
+    }); 
+};
+
 
 //3 Obtener toda la información de la colección de videojuegos de un usuario en específico. 
 module.exports.obtener_videojuegos_usuario = function (req, res) {
@@ -54,7 +78,7 @@ module.exports.obtener_videojuegos_usuario = function (req, res) {
         var idusuario = req.query.username;
         console.log("idusuario" , idusuario); 
 
-        db.collection("videojuego").find({ "username": idusuario }, function (err, result) { 
+        db.collection("videojuego").find({ "username": idusuario }).toArray(function (err, result) { 
             if (err) { 
                 throw err; 
             } 
@@ -73,10 +97,12 @@ module.exports.obtener_buscar_videojuegos_usuario = function (req, res) {
             throw err; 
         } 
         const db = mdbclient.db(dbName); 
-        var idusuario = req.params.username; 
-        var name = req.params.nombre;
+        var idusuario = req.query.username; 
+        var name = req.query.nombre;
+        console.log("idusuario" , idusuario); 
+        console.log("nombre" , name); 
 
-        db.collection("videojuego").find({ username: idusuario, name: nombre }, function (err, result) { 
+        db.collection("videojuego").find({ "username": idusuario, "nombre": name}).toArray(function (err, result) { 
             if (err) { 
                 throw err; 
             } 
@@ -95,10 +121,10 @@ module.exports.obtener_videojuegos_usuario_consola = function (req, res) {
             throw err; 
         } 
         const db = mdbclient.db(dbName); 
-        var idusuario = req.params.username; 
-        var consola = req.params.plataforma;
+        var idusuario = req.query.username; 
+        var consola = req.query.plataforma;
 
-        db.collection("videojuego").find({ username: idusuario, plataforma: consola }, function (err, result) { 
+        db.collection("videojuego").find({ "username": idusuario, "plataforma": consola }).toArray(function (err, result) { 
             if (err) { 
                 throw err; 
             } 
@@ -116,9 +142,9 @@ module.exports.obtener_eventos_usuario = function (req, res) {
             throw err; 
         } 
         const db = mdbclient.db(dbName); 
-        var idusuario = req.params.username; 
+        var idusuario = req.query.username; 
 
-        db.collection("actividad").find({ username: idusuario }, function (err, result) { 
+        db.collection("actividad").find({"username": idusuario }).toArray(function (err, result) { 
             if (err) { 
                 throw err; 
             } 
@@ -134,15 +160,23 @@ module.exports.obtener_eventos_fechas = function (req, res) {
     MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, mdbclient) { 
         if (err) { 
             throw err; 
-        } 
+        }   
         const db = mdbclient.db(dbName); 
-        var inicio = req.params.fecha; 
-        var fin = req.params.fecha; 
+        var inicio = req.query.inicio; 
+        var fin = req.query.fin; 
 
-        db.collection("actividad").find({ fecha:{ $gte:ISODate(inicio), $lt:ISODate(fin) } }, function (err, result) { 
+        db.collection("actividad").find({ }).toArray(function (err, result) { 
             if (err) { 
                 throw err; 
             } 
+
+            result = result.filter((item) => {
+                const from = new Date(inicio);
+                const date = new Date(item.fecha);
+                const to = new Date(fin);
+    
+                return from <= date && to >= date;
+              });
             console.log("Consulta ejecutada..."); 
             mdbclient.close(); 
             res.end(JSON.stringify(result)); 
@@ -158,10 +192,10 @@ module.exports.obtener_busqueda_eventos_usuario = function (req, res) {
             throw err; 
         } 
         const db = mdbclient.db(dbName); 
-        var nombre = req.params.username; 
-        var event = req.params.evento; 
+        var nombre = req.query.username; 
+        var event = req.query.evento; 
 
-        db.collection("actividad").find({username : nombre, evento : event }, function (err, result) { 
+        db.collection("actividad").find({"username" : nombre, "evento" : event }).toArray(function (err, result) { 
             if (err) { 
                 throw err; 
             } 

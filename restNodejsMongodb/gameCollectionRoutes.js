@@ -17,27 +17,28 @@ module.exports = function (app) {
     
     //2
     // app.route('/games')
-
+    app.route('/login')
+        .get(gameCollection.login);
 
     app.route('/games/userId')
         .get(gameCollection.obtener_videojuegos_usuario); //3 
 
-    app.route('/games/search:userId') ////????  
+    app.route('/games/userIdSearch') ////????  
         .get(gameCollection.obtener_buscar_videojuegos_usuario); //4 
 
-    app.route('/games/search:userId') ///Poner mas parametros de usuario y consola 
+    app.route('/games/userIdConsola') ///Poner mas parametros de usuario y consola 
         .get(gameCollection.obtener_videojuegos_usuario_consola); //5
     
 
     app.route('/event')
     
-    app.route('/event/search:userId')
+    app.route('/event/userIdEvent')
         .get(gameCollection.obtener_eventos_usuario) //6
 
-    app.route('/event/search:date') //pasar dos parametros rango de fechas
+    app.route('/event/SearchDatesEvents') //pasar dos parametros rango de fechas
         .get(gameCollection.obtener_eventos_fechas) //7
     
-    app.route('/event/search:userId:event') //pasar dos parametros userid y busqueda de evento
+    app.route('/event/SearchEventUserid') //pasar dos parametros userid y busqueda de evento
         .get(gameCollection.obtener_busqueda_eventos_usuario) //7
     
 };
