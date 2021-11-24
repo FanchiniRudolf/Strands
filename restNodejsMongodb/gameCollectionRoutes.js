@@ -10,17 +10,16 @@ module.exports = function (app) {
    
     app.route('/user')
         .get(gameCollection.obtener_usuarios)
-        .post(gameCollection.agregar_usuario)
-        .delete(gameCollection.borrar_usuario)
+        
 
-    app.route('/user/search')
-        .get(gameCollection.buscar_usuario); //1 
+    app.route('/user/mail')
+        .get(gameCollection.buscar_usuario_by_mail); //1 
     
     //2
-    app.route('/games')
+    // app.route('/games')
 
 
-    app.route('/games/:userId')
+    app.route('/games/userId')
         .get(gameCollection.obtener_videojuegos_usuario); //3 
 
     app.route('/games/search:userId') ////????  

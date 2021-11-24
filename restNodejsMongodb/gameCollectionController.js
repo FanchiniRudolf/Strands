@@ -1,18 +1,37 @@
 'use strict';
 const MongoClient = require('mongodb').MongoClient;
-const url = "mongodb//localhost:27017";
+const url = "mongodb://localhost:27017/inf_portal";
 const dbName = "inf_portal"; 
 
+module.exports.obtener_usuarios = function (req, res) {
+    MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, mdbclient) { 
+        if (err) { 
+            throw err; 
+        } 
+        
+        const db = mdbclient.db(dbName); 
+
+        db.collection("usuario").findOne({}, function (err, result) { 
+            if (err) { 
+                throw err; 
+            } 
+            console.log("Consulta ejecutada..."); 
+            mdbclient.close(); 
+            res.end(JSON.stringify(result)); 
+        }); 
+    }); 
+};
+
 /// practica 1 obtener usuarios en base a su correo electronico
-module.exports.buscar_usuario = function (req, res) {
+module.exports.buscar_usuario_by_mail = function (req, res) {
     MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, mdbclient) { 
         if (err) { 
             throw err; 
         } 
         const db = mdbclient.db(dbName); 
-        var idusuario = req.params.correo_electrónico; 
+        var idusuario = req.query.correo_electrónico; 
 
-        db.collection("usuario").findOne({ correo_electrónico: idusuario }, function (err, result) { 
+        db.collection("usuario").findOne({ "correo_electrónico": idusuario }, function (err, result) { 
             if (err) { 
                 throw err; 
             } 
@@ -25,16 +44,17 @@ module.exports.buscar_usuario = function (req, res) {
 
 // Autenticar un usuario en base a su correo electrónico y contraseña 
 
-//Obtener toda la información de la colección de videojuegos de un usuario en específico. 
+//3 Obtener toda la información de la colección de videojuegos de un usuario en específico. 
 module.exports.obtener_videojuegos_usuario = function (req, res) {
     MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, function (err, mdbclient) { 
         if (err) { 
             throw err; 
         } 
         const db = mdbclient.db(dbName); 
-        var idusuario = req.params.username; 
+        var idusuario = req.query.username;
+        console.log("idusuario" , idusuario); 
 
-        db.collection("videojuego").find({ username: idusuario }, function (err, result) { 
+        db.collection("videojuego").find({ "username": idusuario }, function (err, result) { 
             if (err) { 
                 throw err; 
             } 
